@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <title>Temokate</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav class="sidebar">
+                <button class="btn-close">x</button>
+                <ul class="nav">
+                    <li><a href="#" class="home-link">home</a></li>
+                    <li><a href="#" class="about-link">about</a></li>
+                    <li><a href="#" class="galery-link">galery</a></li>
+                    <li><a href="#" class="contact-link">contact</a></li>
+                </ul>
+            </nav>
+            <section class="content">
+                <div class="scrollUp">></div>
+                <nav class="baner"><button class="btn">menu</button>
+                <h1>Temokate</h1>
+                </nav>
+                <section class="home" id="home">
+                    <header class="header">Welcome to OrientWorld!</header>
+                    <button class="btn-arrow-1">></button>
+                </section>
+                
+                <section class="about" id="about">
+                    <header class="header">About</header>
+                    <p class="text-box">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse euismod nunc ac massa cursus, non tincidunt ligula malesuada. Nam sit amet ipsum mi. Morbi scelerisque, lacus et pulvinar pellentesque, tortor sem placerat ligula, id gravida arcu ante nec quam. Curabitur malesuada ligula sed neque varius, nec rutrum tortor pharetra.</p>
+                    <button class="btn-arrow-2">></button>
+                    
+                </section>  
+                <section class="galery" id="galery">
+                    <header class="header">Galery</header>
+                    <section class="img-box">
+                        <figure class="img-box_element">
+                            <img src="img/pattern.png" alt="pattern0">
+                            <figcaption>
+                            Pattern 0
+                            </figcaption>
+                        </figure>
+                        <figure class="img-box_element">
+                            <img src="img/pattern_1.png" alt="pattern1">
+                            <figcaption>
+                            Pattern 1
+                            </figcaption>
+                        </figure>
+                        <figure class="img-box_element">
+                            <img src="img/pattern_2.png" alt="pattern2">
+                            <figcaption>
+                            Pattern 2
+                            </figcaption>
+                        </figure>
+                        <figure class="img-box_element">
+                            <img src="img/pattern_3.png" alt="pattern3">
+                            <figcaption>
+                            Pattern 3
+                            </figcaption>
+                        </figure>
+                        </section>
+                    <button class="btn-arrow-3">></button>
+                </section>  
+                <section class="contact" id="contact">
+                    <header class="header">Contact</header>
+                    <span class="contact-item">Phone: 000-000-000</span>
+                    <span class="contact-item">Email: company@gmail.com</span>
+                    <span class="contact-item">Social: soon</span>
+                    
+                </section>  
+            </section>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="jquery.scrollTo.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.btn').on('click', function(){
+                    $('.content').toggleClass('isOpen');
+                });
+                $('.btn-close, .home-link').on('click', function(){
+                    $('.content').toggleClass('isOpen');
+                });
+                $('.about-link').on('click', function(){
+                    $.scrollTo($('.about'),400);
+                    $('.content').toggleClass('isOpen'); 
+                });
+                 $('.galery-link').on('click', function(){
+                    $.scrollTo($('.galery'),400);
+                    $('.content').toggleClass('isOpen');  
+                });
+                $('.contact-link').on('click', function(){
+                    $.scrollTo($('.contact'),400);
+                    $('.content').toggleClass('isOpen');
+                    
+                });
+                $('.btn-arrow-1').on('click', function(){
+                    $.scrollTo($('#about'),200);
+                });
+                $('.btn-arrow-2').on('click', function(){
+                    $.scrollTo($('#galery'),200);
+                });
+                $('.btn-arrow-3').on('click', function(){
+                    $.scrollTo($('#contact'),200);
+                });
+                $('.scrollUp').on('click', function(){
+                    $.scrollTo($('body'),400);
+                });
+            });
+        </script>
+
+    </body>
+</html>
