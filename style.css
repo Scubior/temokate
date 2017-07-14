@@ -261,3 +261,11 @@ table {
         padding: 5px;
     }
 }
+@media (min-width: 768px){
+    .sidebar{
+        width: 340px;
+    }
+    .isOpen{
+        transform: translateX(340px);
+    }
+}
