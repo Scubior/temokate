@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
         <link rel="stylesheet" type="text/css" href="style.css">
         <title>Temokate</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+        <script src="jquery.scrollTo.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('.scrollUp').hide();
+            });
+        </script>
+
     </head>
     <body>
         <div class="container">
@@ -17,11 +25,13 @@
                     <li><a href="#" class="contact-link">contact</a></li>
                 </ul>
             </nav>
-            <section class="content">
-                <div class="scrollUp">></div>
-                <nav class="baner"><button class="btn">menu</button>
+            <nav class="baner"><button class="btn">menu</button>
                 <h1>Temokate</h1>
-                </nav>
+            </nav>
+            <div class="scrollUp">></div>
+            <section class="content">
+                
+                
                 <section class="home" id="home">
                     <header class="header">Welcome to OrientWorld!</header>
                     <button class="btn-arrow-1">></button>
@@ -72,15 +82,23 @@
                 </section>  
             </section>
         </div>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-        <script src="jquery.scrollTo.min.js"></script>
+        
         <script>
             $(document).ready(function(){
+                $(window).scroll(function()
+                {   
+                    if($(this).scrollTop()>300) $('.scrollUp').fadeIn();
+                    else $('.scrollUp').fadeOut();
+                }
+                );
                 $('.btn').on('click', function(){
                     $('.content').toggleClass('isOpen');
                 });
-                $('.btn-close, .home-link').on('click', function(){
+                $('.btn-close').on('click', function(){
                     $('.content').toggleClass('isOpen');
+                });
+                $('.home-link').on('click', function(){
+                    $.scrollTo($('.home'),400);
                 });
                 $('.about-link').on('click', function(){
                     $.scrollTo($('.about'),400);
@@ -101,7 +119,7 @@
                     $.scrollTo($('#contact'),200);
                 });
                 $('.scrollUp').on('click', function(){
-                    $.scrollTo($('.baner'),400);
+                    $.scrollTo($('#home'),400);
                 });
             });
         </script>
